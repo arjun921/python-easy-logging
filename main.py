@@ -1,4 +1,4 @@
-from decorators import start_end,timeit
+from decorators import timeit
 import logging.config
 import logging
 import yaml
@@ -6,13 +6,15 @@ import os
 
 logger = logging.getLogger(__name__)
 
+
+# @timeit logs start and end and stores exec time for the function.
 @timeit
-@start_end
 def func_new():
-    """new way of logging in main"""
-    # doc string is compulsory. Last keyword gets used to identify the parent file from where function is defined. 
+    """new way of logging function in main"""
+    # doc string is compulsory. Last keyword gets used to identify the parent file from where function is defined.
     import time
     time.sleep(5)
+
 
 def func_old():
     import datetime
@@ -26,7 +28,6 @@ def func_old():
     logger.critical('Not anymore.')
     logger.info('func_old ended')
     logger.info('Exec took: {}'.format(end-start))
-
 
 
 def setup_logging(
@@ -49,6 +50,6 @@ def setup_logging(
 
 if __name__ == "__main__":
     setup_logging()
-    func_new()
     func_old()
-    
+    func_new()
+    print('Check logs/')
