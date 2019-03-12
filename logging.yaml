@@ -3,7 +3,7 @@ version: 1
 disable_existing_loggers: False
 formatters:
     json:
-        format: '{"timestamp":"%(asctime)s", "level":"%(levelname)s", "module_name":"%(name)s","msg":"%(message)s"}'
+        format: '{"timestamp":"%(asctime)s", "level":"%(levelname)s", "module_name":"%(name)s","msg":"%(message)s}'
     simple:
         format: '%(asctime)s - %(levelname)s - %(name)s - %(message)s'
 
