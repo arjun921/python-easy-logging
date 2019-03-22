@@ -28,3 +28,28 @@ def func_new():
     import time
     time.sleep(5)
 ```
+
+### Additional parameters
+
+If there is other metadata you'd like to attach with your log, use this instead of the default `logging`
+
+```python3
+from helpers import log_line
+import logging
+
+# define logger 
+logger = logging.getLogger(__name__)
+
+
+def some_function(parameters_dict):
+    # function code
+    #               levels['info','debug','critical',etc (same as logging module levels)]
+    #               trace - include python trace
+    #               exit - exit gracefully if program shouldn't proceed ahead if a critical error is logged
+    #               extras - key value dict with other parameters to be logged
+    log_line(logger,level='info',msg='The actual Log Message',trace=False,exit=True, extras=parameters_dict):
+    # more function code
+    # blah
+    
+```
+
